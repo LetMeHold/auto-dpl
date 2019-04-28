@@ -1,0 +1,55 @@
+{
+    "version": "1.0",
+    "dpl_path": "/mydata/program1",
+    "backup_path": "/mydata/backup/program1",
+    "package_path": "/mydata/packages/program1",
+    "hosts": {
+        "host-develop-01": "172.18.27.36",
+        "host-test-01": "172.18.27.48",
+        "host-product-01": "172.18.203.156",
+        "host-product-02": "172.18.203.157",
+        "host-product-03": "172.18.203.158"
+    },
+    "projects": {
+        "server-background": {
+            "type": "server",
+            "package": "server-background.tar.gz"
+        },
+        "monitor-server": {
+            "type": "server",
+            "package": "monitor-server.tar.gz"
+        },
+        "tomcat-foreground": {
+            "type": "tomcat",
+            "package": "foreground.war"
+        }
+    },
+    "deployment": {
+        "develop": {
+            "host-develop-01": [
+                "server-background",
+                "tomcat-foreground"
+            ]
+        },
+        "test": {
+            "host-test-01": [
+                "server-background",
+                "tomcat-foreground"
+            ]
+        },
+        "product": {
+            "host-product-01": [
+                "server-background",
+                "tomcat-foreground"
+            ],
+            "host-product-02": [
+                "server-background",
+                "tomcat-foreground"
+            ],
+            "host-product-03": [
+                "server-background",
+                "tomcat-foreground"
+            ]
+        }
+    }
+}
